@@ -13,9 +13,9 @@ def describe(*number, decimals =2 ,label ="Data"):
 def make_tag(text, **style):
     argument = ""
     for key, value in style.items():
-        argument += f'{key} = "{value}"'
+        argument += f' {key} = "{value}"'
         
-    return f"<span{argument}>{text}</span>"
+    return f"<span {argument} >{text}</span>"
 # c. write two lambda func
 square = lambda x: x**2
 is_adult = lambda age: age >=18
