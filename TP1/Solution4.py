@@ -12,12 +12,14 @@
 
 # Part B: function turning string into number
 def safe_int(text):
-    text = text.strip()
     
-    try: 
-        return int(float(text))
+    text = text.strip()
+    if text.lstrip("-").isdigit():         
+        return int(text)
+    try:
+        return int(float(text))            
     except ValueError:
-        return None
+        return None                       
     
 for sample in ["42", " -8 ", "3.9", "abc", ""]: 
     print(repr(sample), "->", safe_int(sample))
@@ -26,8 +28,9 @@ for sample in ["42", " -8 ", "3.9", "abc", ""]:
 num1 = safe_int(input("Enter an input 1: "))
 num2 = safe_int(input("Enter an input 2: "))
 
-if (num1 or num2) is None:
+if (num1 is None) or (num2 is None) :
     print("sorry, The input value is not a number")
 else:
-    print("Sum = ", num1+num2)
+    print(f"Sum = {num1+num2}")
 
+ 
